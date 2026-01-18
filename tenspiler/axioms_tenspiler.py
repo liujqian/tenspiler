@@ -302,3 +302,27 @@ dissolve_matrix_selection_two_args_axiom = Axiom(
     rand.src,
     index.src,
 )
+
+axioms = [
+    vec_elemwise_add_axiom,
+    vec_elemwise_mul_axiom,
+    scalar_vec_sub_axiom,
+    vec_scalar_sub_axiom,
+    vec_scalar_add_axiom,
+    scalar_vec_div_axiom,
+    vec_scalar_mul_axiom,
+    vec_elemwise_sub_axiom,
+    reduce_sum_axiom,
+    reduce_max_axiom,
+    vec_scalar_div_axiom,
+    vec_elemwise_div_axiom,
+    matrix_elemwise_add_axiom,
+    matrix_elemwise_sub_axiom,
+    matrix_scalar_sub_axiom,
+    matrix_scalar_mul_axiom,
+    matrix_vec_mul_axiom,
+    matrix_elemwise_mul_axiom,
+    matrix_scalar_div_axiom,
+    matrix_selection_two_args_axiom,
+    dissolve_matrix_selection_two_args_axiom,
+]
