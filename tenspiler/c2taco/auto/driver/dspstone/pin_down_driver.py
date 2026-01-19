@@ -1,6 +1,6 @@
 from tenspiler.axioms_tenspiler import axioms
 from tenspiler.codegen.utils import DataType
-from tenspiler.tree_parser import analyze_double_loops, analyze_single_loop
+from tenspiler.tree_parser import analyze_single_loop
 from tenspiler.utils.synthesis_utils import run_synthesis_algorithm
 # This driver fails.
 if __name__ == "__main__":

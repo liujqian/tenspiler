@@ -2,7 +2,7 @@ from tenspiler.axioms_tenspiler import axioms
 from tenspiler.codegen.utils import DataType
 from tenspiler.tree_parser import analyze_double_loops
 from tenspiler.utils.synthesis_utils import run_synthesis_algorithm
-# This driver fails.
+# This driver does not work.
 if __name__ == "__main__":
     driver, input_vars, matinit = analyze_double_loops(
         file_path="tenspiler/c2taco/cpp/for_synthesis/dsp/matinit_.cc",
