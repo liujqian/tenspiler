@@ -5,7 +5,7 @@ from tenspiler.utils.synthesis_utils import run_synthesis_algorithm
 # This driver does not work.
 if __name__ == "__main__":
     try:
-        driver, input_vars, mag_array = analyze_single_loop(
+        driver, input_vars, fun = analyze_single_loop(
             file_path="tenspiler/c2taco/cpp/for_synthesis/dsp/matmul_.cc",
             func_name="matmul",
             axioms=axioms,
@@ -13,7 +13,7 @@ if __name__ == "__main__":
     except Exception as e:
         print(e)
     try:
-        driver, input_vars, mag_array = analyze_double_loops(
+        driver, input_vars, fun = analyze_double_loops(
             file_path="tenspiler/c2taco/cpp/for_synthesis/dsp/matmul_.cc",
             func_name="matmul",
             axioms=axioms,
