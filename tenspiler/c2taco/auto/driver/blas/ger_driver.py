@@ -25,6 +25,6 @@ if __name__ == "__main__":
     run_synthesis_algorithm(
         driver=driver,
         data_type=DataType.FLOAT,
-        benchmark_name="ger_",
+        benchmark_name="ger",
         has_relaxed=True
     )

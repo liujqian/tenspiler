@@ -16,6 +16,6 @@ if __name__ == "__main__":
     run_synthesis_algorithm(
         driver=driver,
         data_type=DataType.INT32,
-        benchmark_name="matinit",
+        benchmark_name="pin_down",
         has_relaxed=True
     )
