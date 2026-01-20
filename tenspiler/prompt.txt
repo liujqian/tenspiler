@@ -1,0 +1,116 @@
+Please translate the following Python program using NumPy to an equivalent C Plus Plus program. Follow these rules while you translate. 1. Use vectors and nested vectors for multidimensional arrays. 2. Use int as the template argument to instantiate vector templates. 3. Do not use unnecessary quantifiers such as const to modify the input arguments. 4. Use vector.push_back to add elements into the vector instead of making assignments to indices if possible.
+
+Here are some examples:
+Python code:
+def dot_modified(a: np.ndarray, b: np.ndarray) -> int:
+    """
+    Args:
+        a: NumPy ndarray of shape (N,).
+        b: NumPy ndarray of shape (N,).
+    Returns:
+        Scalar integer representing the dot product.
+    """
+    sum_val = np.zeros((1,))
+    for i in range(a.shape[0]):
+        sum_val[0] = sum_val[0] + a[i] * b[i]
+    return sum_val[0]
+C Plus Plus code:
+#include <vector>
+using namespace std;
+
+int dot(vector<int> a, vector<int> b, int n) {
+  int sum = 0;
+  for (int i = 0; i < n; ++i) {
+    sum += a[i] * b[i];
+  }
+  return sum;
+}
+Python code:
+def color_burn_8(base: np.ndarray, active: np.ndarray) -> np.ndarray:
+    """
+    Args:
+        base: NumPy ndarray of shape (M, N).
+        active: NumPy ndarray of shape (M, N).
+    Returns:
+        NumPy ndarray of shape (M, N) with int elements.
+    """
+    out = np.zeros((base.shape[0], base.shape[1]))
+    for row in range(base.shape[0]):
+        for col in range(base.shape[1]):
+            if active[row, col] == 0:
+                pixel = 32
+            else:
+                pixel = 32 - (32 - base[row, col]) / active[row, col]
+            out[row, col] = pixel
+    return out
+C Plus Plus code:
+vector<vector<int>> color_burn_8(vector<vector<int>> base, vector<vector<int>> active)
+{
+    vector<vector<int>> out;
+    int m = base.size();
+    int n = base[0].size();
+	for (int row = 0; row < m; row++) {
+        vector<int> row_vec;
+		for (int col = 0; col < n; col++) {
+            int pixel;
+            if (active[row][col] == 0)
+                pixel = 32;
+            else
+                pixel = 32 - (32 - base[row][col]) / active[row][col];
+            row_vec.push_back(pixel);
+		}
+		out.push_back(row_vec);
+	}
+	return out;
+}
+Python code:
+def rmsnorm_part1(input: np.ndarray, weight: np.ndarray) -> int:
+    """
+    Args:
+        input: NumPy ndarray of shape (N,).
+        weight: NumPy ndarray of shape (N,).
+    Returns:
+        S: int.
+    """
+    sum_val = 0
+    for i in range(input.shape[0]):
+        sum_val += input[i] * input[i]
+    return sum_val
+C Plus Plus code:
+#include <vector>
+using namespace std;
+
+int rmsnorm_part1(vector<int> input, vector<int> weight) {
+    int ss = 0;
+    for (int i = 0; i < input.size(); i++)
+        ss += input[i] * input[i];
+    return ss;
+}
+Now please translate the following Python code:
+def kernel_2mm(A: np.ndarray, B: np.ndarray, C: np.ndarray, D: np.ndarray, alpha, beta) -> np.ndarray:
+    """
+    Args:
+        A: NumPy ndarray of shape (M, K).
+        B: NumPy ndarray of shape (K, N).
+        C: NumPy ndarray of shape (N, L).
+        D: NumPy ndarray of shape (M, L).
+        alpha: scalar multiplier.
+        beta: scalar multiplier.
+    Returns:
+        S: NumPy ndarray of shape (M, L).
+    """
+    tmp = np.zeros((A.shape[0], B.shape[1]), dtype=A.dtype)
+    for i in range(A.shape[0]):
+        for j in range(B.shape[1]):
+            tmp[i, j] = 0
+            for k in range(A.shape[1]):
+                tmp[i, j] += alpha * A[i, k] * B[k, j]
+    S = np.zeros((A.shape[0], C.shape[1]), dtype=D.dtype)
+    for i in range(A.shape[0]):
+        for j in range(C.shape[1]):
+            S[i, j] = beta * D[i, j]
+            for k in range(tmp.shape[1]):
+                S[i, j] += tmp[i, k] * C[k, j]
+    return S
+
+
