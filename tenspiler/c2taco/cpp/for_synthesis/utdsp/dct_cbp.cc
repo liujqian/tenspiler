@@ -1,9 +1,6 @@
 #include <vector>
 using namespace std;
-
-#include <vector>
-using namespace std;
-
+// Cannot be processed. More than two nested loops.
 vector<vector<int>> dct(vector<vector<int>> A,
                            vector<vector<int>> B,
                            vector<vector<int>> C,

@@ -1,6 +1,6 @@
 #include <vector>
 using namespace std;
-
+// Cannot be processed. More than two nested loops.
 vector<vector<int>> gemm_tt(int ALPHA, int M, int N, int K,
                                vector<vector<int>> A,
                                vector<vector<int>> B,
