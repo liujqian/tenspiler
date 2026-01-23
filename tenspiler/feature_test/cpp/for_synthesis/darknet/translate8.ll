@@ -1,5 +1,5 @@
-; ModuleID = './for_synthesis/darknet/translate6.ll'
-source_filename = "./for_synthesis/darknet/translate6.cc"
+; ModuleID = './for_synthesis/darknet/translate8.ll'
+source_filename = "./for_synthesis/darknet/translate8.cc"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
@@ -30,8 +30,6 @@ target triple = "x86_64-unknown-linux-gnu"
 $_ZNSt3__16vectorIiNS_9allocatorIiEEEC2Ev = comdat any
 
 $_ZNSt3__16vectorIiNS_9allocatorIiEEE9push_backEOi = comdat any
-
-$_Z4sqrtIiENSt3__19enable_ifIXsr3std11is_integralIT_EE5valueEdE4typeES2_ = comdat any
 
 $_ZNSt3__16vectorIiNS_9allocatorIiEEEixEm = comdat any
 
@@ -218,22 +216,23 @@ $_ZNKSt3__117__compressed_pairIPiRNS_9allocatorIiEEE5firstEv = comdat any
 @_ZTVSt12length_error = external dso_local unnamed_addr constant { [5 x i8*] }, align 8
 
 ; Function Attrs: noinline optnone uwtable
-define dso_local void @_Z10translate6NSt3__16vectorIiNS_9allocatorIiEEEEii(%"class.std::__1::vector"* noalias sret align 8 %agg.result, %"class.std::__1::vector"* %a, i32 %n, i32 %s) #0 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
+define dso_local void @_Z10translate8NSt3__16vectorIiNS_9allocatorIiEEEEii(%"class.std::__1::vector"* noalias sret align 8 %agg.result, %"class.std::__1::vector"* %a, i32 %n, i32 %s) #0 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
 entry:
   %result.ptr = alloca i8*, align 8
   %n.addr = alloca i32, align 4
   %s.addr = alloca i32, align 4
   %i = alloca i32, align 4
-  %nrvo = alloca i1, align 1
+  %temp = alloca %"class.std::__1::vector", align 8
   %ref.tmp = alloca i32, align 4
   %exn.slot = alloca i8*, align 8
   %ehselector.slot = alloca i32, align 4
+  %nrvo = alloca i1, align 1
+  %ref.tmp4 = alloca i32, align 4
   %i1 = bitcast %"class.std::__1::vector"* %agg.result to i8*
   store i8* %i1, i8** %result.ptr, align 8
   store i32 %n, i32* %n.addr, align 4
   store i32 %s, i32* %s.addr, align 4
-  store i1 false, i1* %nrvo, align 1
-  call void @_ZNSt3__16vectorIiNS_9allocatorIiEEEC2Ev(%"class.std::__1::vector"* %agg.result) #10
+  call void @_ZNSt3__16vectorIiNS_9allocatorIiEEEC2Ev(%"class.std::__1::vector"* %temp) #10
   store i32 0, i32* %i, align 4
   br label %for.cond
 
@@ -241,20 +240,17 @@ for.cond:                                         ; preds = %for.inc, %entry
   %i2 = load i32, i32* %i, align 4
   %i3 = load i32, i32* %n.addr, align 4
   %cmp = icmp slt i32 %i2, %i3
-  br i1 %cmp, label %bb, label %bb8
+  br i1 %cmp, label %bb, label %bb14
 
 for.body:                                         ; preds = %bb
   %i4 = load i32, i32* %i, align 4
   %conv = sext i32 %i4 to i64
   %call = call nonnull align 4 dereferenceable(4) i32* @_ZNSt3__16vectorIiNS_9allocatorIiEEEixEm(%"class.std::__1::vector"* %a, i64 %conv) #10
   %i5 = load i32, i32* %call, align 4
-  %call1 = call double @_Z4sqrtIiENSt3__19enable_ifIXsr3std11is_integralIT_EE5valueEdE4typeES2_(i32 %i5) #10
   %i6 = load i32, i32* %s.addr, align 4
-  %conv2 = sitofp i32 %i6 to double
-  %add = fadd double %call1, %conv2
-  %conv3 = fptosi double %add to i32
-  store i32 %conv3, i32* %ref.tmp, align 4
-  call void @_ZNSt3__16vectorIiNS_9allocatorIiEEE9push_backEOi(%"class.std::__1::vector"* %agg.result, i32* nonnull align 4 dereferenceable(4) %ref.tmp)
+  %add = add nsw i32 %i5, %i6
+  store i32 %add, i32* %ref.tmp, align 4
+  call void @_ZNSt3__16vectorIiNS_9allocatorIiEEE9push_backEOi(%"class.std::__1::vector"* %temp, i32* nonnull align 4 dereferenceable(4) %ref.tmp)
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %for.body
@@ -266,28 +262,67 @@ for.inc:                                          ; preds = %invoke.cont
   store i32 %inc, i32* %i, align 4
   br label %for.cond
 
-for.end:                                          ; preds = %bb8
+for.end:                                          ; preds = %bb14
+  store i1 false, i1* %nrvo, align 1
+  call void @_ZNSt3__16vectorIiNS_9allocatorIiEEEC2Ev(%"class.std::__1::vector"* %agg.result) #10
+  store i32 0, i32* %i, align 4
+  br label %for.cond1
+
+for.cond1:                                        ; preds = %for.inc10, %for.end
+  %i8 = load i32, i32* %i, align 4
+  %i9 = load i32, i32* %n.addr, align 4
+  %cmp2 = icmp slt i32 %i8, %i9
+  br i1 %cmp2, label %bb15, label %bb16
+
+for.body3:                                        ; preds = %bb15
+  %i10 = load i32, i32* %i, align 4
+  %conv5 = sext i32 %i10 to i64
+  %call6 = call nonnull align 4 dereferenceable(4) i32* @_ZNSt3__16vectorIiNS_9allocatorIiEEEixEm(%"class.std::__1::vector"* %temp, i64 %conv5) #10
+  %i11 = load i32, i32* %call6, align 4
+  %i12 = load i32, i32* %s.addr, align 4
+  %add7 = add nsw i32 %i11, %i12
+  store i32 %add7, i32* %ref.tmp4, align 4
+  call void @_ZNSt3__16vectorIiNS_9allocatorIiEEE9push_backEOi(%"class.std::__1::vector"* %agg.result, i32* nonnull align 4 dereferenceable(4) %ref.tmp4)
+  br label %invoke.cont9
+
+invoke.cont9:                                     ; preds = %for.body3
+  br label %for.inc10
+
+for.inc10:                                        ; preds = %invoke.cont9
+  %i13 = load i32, i32* %i, align 4
+  %inc11 = add nsw i32 %i13, 1
+  store i32 %inc11, i32* %i, align 4
+  br label %for.cond1
+
+for.end12:                                        ; preds = %bb16
   store i1 true, i1* %nrvo, align 1
   %nrvo.val = load i1, i1* %nrvo, align 1
-  br i1 %nrvo.val, label %bb9, label %bb10
+  br i1 %nrvo.val, label %bb17, label %bb18
 
-nrvo.unused:                                      ; preds = %bb10
+nrvo.unused:                                      ; preds = %bb18
   call void @_ZNSt3__16vectorIiNS_9allocatorIiEEED2Ev(%"class.std::__1::vector"* %agg.result) #10
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %bb9, %nrvo.unused
+nrvo.skipdtor:                                    ; preds = %bb17, %nrvo.unused
+  call void @_ZNSt3__16vectorIiNS_9allocatorIiEEED2Ev(%"class.std::__1::vector"* %temp) #10
   ret void
 
 bb:                                               ; preds = %for.cond
   br label %for.body
 
-bb8:                                              ; preds = %for.cond
+bb14:                                             ; preds = %for.cond
   br label %for.end
 
-bb9:                                              ; preds = %for.end
+bb15:                                             ; preds = %for.cond1
+  br label %for.body3
+
+bb16:                                             ; preds = %for.cond1
+  br label %for.end12
+
+bb17:                                             ; preds = %for.end12
   br label %nrvo.skipdtor
 
-bb10:                                             ; preds = %for.end
+bb18:                                             ; preds = %for.end12
   br label %nrvo.unused
 }
 
@@ -339,17 +374,6 @@ bb:                                               ; preds = %entry
 
 bb6:                                              ; preds = %entry
   br label %if.else
-}
-
-; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr hidden double @_Z4sqrtIiENSt3__19enable_ifIXsr3std11is_integralIT_EE5valueEdE4typeES2_(i32 %__lcpp_x) #1 comdat {
-entry:
-  %__lcpp_x.addr = alloca i32, align 4
-  store i32 %__lcpp_x, i32* %__lcpp_x.addr, align 4
-  %i = load i32, i32* %__lcpp_x.addr, align 4
-  %conv = sitofp i32 %i to double
-  %call = call double @sqrt(double %conv) #10
-  ret double %call
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
@@ -900,9 +924,6 @@ entry:
   ret %"class.std::__1::allocator"* %i
 }
 
-; Function Attrs: nounwind
-declare dso_local double @sqrt(double) #4
-
 ; Function Attrs: noinline nounwind optnone uwtable
 define linkonce_odr hidden nonnull align 8 dereferenceable(8) i32** @_ZNSt3__113__vector_baseIiNS_9allocatorIiEEE9__end_capEv(%"class.std::__1::__vector_base"* %this) #1 comdat align 2 {
 entry:
@@ -1356,7 +1377,7 @@ invoke.cont:                                      ; preds = %entry
 }
 
 ; Function Attrs: noreturn
-declare dso_local void @_ZNKSt3__120__vector_base_commonILb1EE20__throw_length_errorEv(%"class.std::__1::__vector_base_common"*) #5
+declare dso_local void @_ZNKSt3__120__vector_base_commonILb1EE20__throw_length_errorEv(%"class.std::__1::__vector_base_common"*) #4
 
 ; Function Attrs: noinline optnone uwtable
 define linkonce_odr hidden nonnull align 8 dereferenceable(8) i64* @_ZNSt3__13maxImEERKT_S3_S3_(i64* nonnull align 8 dereferenceable(8) %__a, i64* nonnull align 8 dereferenceable(8) %__b) #0 comdat {
@@ -1659,7 +1680,7 @@ bb3:                                              ; preds = %entry
 }
 
 ; Function Attrs: noinline noreturn optnone uwtable
-define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorEPKc(i8* %__msg) #6 comdat personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
+define linkonce_odr hidden void @_ZNSt3__120__throw_length_errorEPKc(i8* %__msg) #5 comdat personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
 entry:
   %__msg.addr = alloca i8*, align 8
   %exn.slot = alloca i8*, align 8
@@ -1709,7 +1730,7 @@ entry:
 declare dso_local void @__cxa_free_exception(i8*)
 
 ; Function Attrs: nounwind
-declare dso_local void @_ZNSt12length_errorD1Ev(%"class.std::length_error"*) unnamed_addr #4
+declare dso_local void @_ZNSt12length_errorD1Ev(%"class.std::length_error"*) unnamed_addr #6
 
 declare dso_local void @__cxa_throw(i8*, i8*, i8*)
 
@@ -1984,9 +2005,9 @@ attributes #0 = { noinline optnone uwtable "correctly-rounded-divide-sqrt-fp-mat
 attributes #1 = { noinline nounwind optnone uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "min-legal-vector-width"="0" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
 attributes #2 = { noinline noreturn nounwind }
 attributes #3 = { nobuiltin nounwind "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
-attributes #4 = { nounwind "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
-attributes #5 = { noreturn "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
-attributes #6 = { noinline noreturn optnone uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "min-legal-vector-width"="0" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #4 = { noreturn "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #5 = { noinline noreturn optnone uwtable "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "min-legal-vector-width"="0" "no-infs-fp-math"="false" "no-jump-tables"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
+attributes #6 = { nounwind "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
 attributes #7 = { "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
 attributes #8 = { nobuiltin allocsize(0) "correctly-rounded-divide-sqrt-fp-math"="false" "disable-tail-calls"="false" "frame-pointer"="all" "less-precise-fpmad"="false" "no-infs-fp-math"="false" "no-nans-fp-math"="false" "no-signed-zeros-fp-math"="false" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "unsafe-fp-math"="false" "use-soft-float"="false" }
 attributes #9 = { argmemonly nounwind willreturn }

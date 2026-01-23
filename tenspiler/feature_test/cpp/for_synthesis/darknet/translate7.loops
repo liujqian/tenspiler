@@ -1,8 +1,8 @@
-Printing analysis 'Natural Loop Information' for function '_Z10translate6NSt3__16vectorIiNS_9allocatorIiEEEEii':
+Printing analysis 'Natural Loop Information' for function '_Z10translate7NSt3__16vectorIiNS_9allocatorIiEEEEii':
 Loop at depth 1 containing: %for.cond<header><exiting>,%bb,%for.body,%invoke.cont,%for.inc<latch>
 Printing analysis 'Natural Loop Information' for function '_ZNSt3__16vectorIiNS_9allocatorIiEEEC2Ev':
 Printing analysis 'Natural Loop Information' for function '_ZNSt3__16vectorIiNS_9allocatorIiEEE9push_backEOi':
-Printing analysis 'Natural Loop Information' for function '_Z4sqrtIiENSt3__19enable_ifIXsr3std11is_integralIT_EE5valueEdE4typeES2_':
+Printing analysis 'Natural Loop Information' for function '_Z3powIiiENSt3__19_MetaBaseIXaasr3std13is_arithmeticIT_EE5valuesr3std13is_arithmeticIT0_EE5valueEE13_EnableIfImplINS0_9__promoteIS2_S3_vEEE4typeES2_S3_':
 Printing analysis 'Natural Loop Information' for function '_ZNSt3__16vectorIiNS_9allocatorIiEEEixEm':
 Printing analysis 'Natural Loop Information' for function '_ZNSt3__16vectorIiNS_9allocatorIiEEED2Ev':
 Printing analysis 'Natural Loop Information' for function '_ZNSt3__113__vector_baseIiNS_9allocatorIiEEEC2Ev':

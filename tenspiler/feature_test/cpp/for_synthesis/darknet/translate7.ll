@@ -1,5 +1,5 @@
-; ModuleID = './for_synthesis/darknet/translate6.ll'
-source_filename = "./for_synthesis/darknet/translate6.cc"
+; ModuleID = './for_synthesis/darknet/translate7.ll'
+source_filename = "./for_synthesis/darknet/translate7.cc"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
@@ -31,7 +31,7 @@ $_ZNSt3__16vectorIiNS_9allocatorIiEEEC2Ev = comdat any
 
 $_ZNSt3__16vectorIiNS_9allocatorIiEEE9push_backEOi = comdat any
 
-$_Z4sqrtIiENSt3__19enable_ifIXsr3std11is_integralIT_EE5valueEdE4typeES2_ = comdat any
+$_Z3powIiiENSt3__19_MetaBaseIXaasr3std13is_arithmeticIT_EE5valuesr3std13is_arithmeticIT0_EE5valueEE13_EnableIfImplINS0_9__promoteIS2_S3_vEEE4typeES2_S3_ = comdat any
 
 $_ZNSt3__16vectorIiNS_9allocatorIiEEEixEm = comdat any
 
@@ -218,7 +218,7 @@ $_ZNKSt3__117__compressed_pairIPiRNS_9allocatorIiEEE5firstEv = comdat any
 @_ZTVSt12length_error = external dso_local unnamed_addr constant { [5 x i8*] }, align 8
 
 ; Function Attrs: noinline optnone uwtable
-define dso_local void @_Z10translate6NSt3__16vectorIiNS_9allocatorIiEEEEii(%"class.std::__1::vector"* noalias sret align 8 %agg.result, %"class.std::__1::vector"* %a, i32 %n, i32 %s) #0 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
+define dso_local void @_Z10translate7NSt3__16vectorIiNS_9allocatorIiEEEEii(%"class.std::__1::vector"* noalias sret align 8 %agg.result, %"class.std::__1::vector"* %a, i32 %n, i32 %s) #0 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
 entry:
   %result.ptr = alloca i8*, align 8
   %n.addr = alloca i32, align 4
@@ -248,12 +248,10 @@ for.body:                                         ; preds = %bb
   %conv = sext i32 %i4 to i64
   %call = call nonnull align 4 dereferenceable(4) i32* @_ZNSt3__16vectorIiNS_9allocatorIiEEEixEm(%"class.std::__1::vector"* %a, i64 %conv) #10
   %i5 = load i32, i32* %call, align 4
-  %call1 = call double @_Z4sqrtIiENSt3__19enable_ifIXsr3std11is_integralIT_EE5valueEdE4typeES2_(i32 %i5) #10
   %i6 = load i32, i32* %s.addr, align 4
-  %conv2 = sitofp i32 %i6 to double
-  %add = fadd double %call1, %conv2
-  %conv3 = fptosi double %add to i32
-  store i32 %conv3, i32* %ref.tmp, align 4
+  %call1 = call double @_Z3powIiiENSt3__19_MetaBaseIXaasr3std13is_arithmeticIT_EE5valuesr3std13is_arithmeticIT0_EE5valueEE13_EnableIfImplINS0_9__promoteIS2_S3_vEEE4typeES2_S3_(i32 %i5, i32 %i6) #10
+  %conv2 = fptosi double %call1 to i32
+  store i32 %conv2, i32* %ref.tmp, align 4
   call void @_ZNSt3__16vectorIiNS_9allocatorIiEEE9push_backEOi(%"class.std::__1::vector"* %agg.result, i32* nonnull align 4 dereferenceable(4) %ref.tmp)
   br label %invoke.cont
 
@@ -342,13 +340,17 @@ bb6:                                              ; preds = %entry
 }
 
 ; Function Attrs: noinline nounwind optnone uwtable
-define linkonce_odr hidden double @_Z4sqrtIiENSt3__19enable_ifIXsr3std11is_integralIT_EE5valueEdE4typeES2_(i32 %__lcpp_x) #1 comdat {
+define linkonce_odr hidden double @_Z3powIiiENSt3__19_MetaBaseIXaasr3std13is_arithmeticIT_EE5valuesr3std13is_arithmeticIT0_EE5valueEE13_EnableIfImplINS0_9__promoteIS2_S3_vEEE4typeES2_S3_(i32 %__lcpp_x, i32 %__lcpp_y) #1 comdat {
 entry:
   %__lcpp_x.addr = alloca i32, align 4
+  %__lcpp_y.addr = alloca i32, align 4
   store i32 %__lcpp_x, i32* %__lcpp_x.addr, align 4
+  store i32 %__lcpp_y, i32* %__lcpp_y.addr, align 4
   %i = load i32, i32* %__lcpp_x.addr, align 4
   %conv = sitofp i32 %i to double
-  %call = call double @sqrt(double %conv) #10
+  %i1 = load i32, i32* %__lcpp_y.addr, align 4
+  %conv1 = sitofp i32 %i1 to double
+  %call = call double @pow(double %conv, double %conv1) #10
   ret double %call
 }
 
@@ -901,7 +903,7 @@ entry:
 }
 
 ; Function Attrs: nounwind
-declare dso_local double @sqrt(double) #4
+declare dso_local double @pow(double, double) #4
 
 ; Function Attrs: noinline nounwind optnone uwtable
 define linkonce_odr hidden nonnull align 8 dereferenceable(8) i32** @_ZNSt3__113__vector_baseIiNS_9allocatorIiEEE9__end_capEv(%"class.std::__1::__vector_base"* %this) #1 comdat align 2 {
