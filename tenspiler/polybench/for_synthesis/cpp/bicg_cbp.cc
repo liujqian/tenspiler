@@ -1,7 +1,7 @@
 #include <vector>
 using namespace std;
 // Not all results are returned.
-
+// Cannot be processed. More than one top-level loop.
 vector<int> kernel_bicg(vector<vector<int>> A,vector<int> p,vector<int> r) {
     int N = A.size();
     int M = A[0].size();

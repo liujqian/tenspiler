@@ -2,7 +2,7 @@
 using namespace std;
 
 
-
+// Cannot be processed. More than one top-level loop.
 vector<int>  kernel_gemver(vector<vector<int>> A,
                            vector<int> u1,
                            vector<int> v1,

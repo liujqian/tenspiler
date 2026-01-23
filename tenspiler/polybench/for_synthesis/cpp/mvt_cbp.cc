@@ -1,7 +1,7 @@
 #include <vector>
 #include <utility>
 using namespace std;
-
+// Cannot be processed. More than one top-level loop.
 pair<vector<int>, vector<int>> kernel_mvt(vector<vector<int>> A,
                                           vector<int> x1,
                                           vector<int> x2,

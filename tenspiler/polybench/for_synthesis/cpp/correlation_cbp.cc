@@ -2,7 +2,7 @@
 #include <cmath>
 using namespace std;
 
-
+// Cannot be processed. More than one top-level loop.
 vector<vector<int>> kernel_correlation(vector<vector<int>> data, int float_n) {
     int N = data.size();
     int M = data[0].size();

@@ -1,6 +1,6 @@
 #include <vector>
 using namespace std;
-
+// Cannot be processed. More than two nested loops.
 vector<vector<int>> kernel_trmm(vector<vector<int>> A,
                                 vector<vector<int>> B,
                                 int alpha) {

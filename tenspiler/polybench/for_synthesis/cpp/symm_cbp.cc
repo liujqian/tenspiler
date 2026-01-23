@@ -1,6 +1,6 @@
 #include <vector>
 using namespace std;
-
+// Cannot be processed. More than two nested loops.
 vector<vector<int>> kernel_symm(vector<vector<int>> A,
                                 vector<vector<int>> B,
                                 vector<vector<int>> C,

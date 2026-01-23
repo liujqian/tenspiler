@@ -1,6 +1,6 @@
 #include <vector>
 using namespace std;
-
+// Cannot be processed. More than two nested loops.
 vector<vector<int>> kernel_syrk(vector<vector<int>> A,
                                 vector<vector<int>> C,
                                 int alpha,
