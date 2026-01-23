@@ -1,0 +1,23 @@
+from tenspiler.codegen.utils import DataType
+from tenspiler.tree_parser import analyze_single_loop, analyze_double_loops
+from tenspiler.utils.synthesis_utils import run_synthesis_algorithm
+
+if __name__ == "__main__":
+    translate_number = 2
+    # Cannot find type for variable call2
+    driver, input_vars, translate_array = analyze_single_loop(
+        file_path=f"tenspiler/feature_test/cpp/for_synthesis/darknet/translate{translate_number}.cc",
+        func_name=f"translate{translate_number}",
+        axioms=[],
+    )
+    a, n, s, b = input_vars["a"], input_vars["n"], input_vars["s"], input_vars["b"]
+    driver.add_precondition(n >= 1)
+    driver.add_precondition(a.len() >= n)
+    driver.add_precondition(b.len() >= n)
+    translate_array(a, n, s, b)
+    run_synthesis_algorithm(
+        driver=driver,
+        data_type=DataType.INT32,
+        benchmark_name="translate_array",
+        has_relaxed=False,
+    )
