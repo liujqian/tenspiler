@@ -5,8 +5,8 @@ from tenspiler.utils.synthesis_utils import run_synthesis_algorithm
 
 if __name__ == "__main__":
     driver, input_vars, relative_difference = analyze_double_loops(
-        file_path="tenspiler/c2taco/cpp/for_synthesis/stackoverflow/relative_difference.cc",
-        func_name="relative_difference",
+        file_path="tenspiler/stack_overflow/cpp/for_synthesis/relative_difference.cc",
+        func_name="calculate_relative_difference",
         axioms=axioms,
     )
     a = input_vars["a"]

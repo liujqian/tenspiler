@@ -1,4 +1,4 @@
-Printing analysis 'Natural Loop Information' for function '_Z11sum_columnsNSt3__16vectorINS0_IiNS_9allocatorIiEEEENS1_IS3_EEEEi':
+Printing analysis 'Natural Loop Information' for function '_Z21calculate_sum_columnsNSt3__16vectorINS0_IiNS_9allocatorIiEEEENS1_IS3_EEEEi':
 Loop at depth 1 containing: %for.cond<header><exiting>,%bb,%for.body,%invoke.cont,%for.inc<latch>
 Printing analysis 'Natural Loop Information' for function '_ZNSt3__16vectorIiNS_9allocatorIiEEEC2Ev':
 Printing analysis 'Natural Loop Information' for function '_ZNSt3__16vectorINS0_IiNS_9allocatorIiEEEENS1_IS3_EEEixEm':

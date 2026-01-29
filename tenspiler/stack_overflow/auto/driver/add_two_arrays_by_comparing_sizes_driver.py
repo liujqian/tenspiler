@@ -5,13 +5,13 @@ from tenspiler.utils.synthesis_utils import run_synthesis_algorithm
 
 if __name__ == "__main__":
     driver, input_vars, add_two_arrays_by_comparing_sizes = analyze_single_loop(
-        file_path="tenspiler/c2taco/cpp/for_synthesis/stackoverflow/add_two_arrays_by_comparing_sizes.cc",
+        file_path="tenspiler/stack_overflow/cpp/for_synthesis/add_two_arrays_by_comparing_sizes.cc",
         func_name="add_two_arrays_by_comparing_sizes",
         axioms=axioms,
     )
     a, b = input_vars["a"], input_vars["b"]
     driver.add_precondition(a.len() >= 1)
-    driver.add_precondition(a.len() >= b.len())
+    driver.add_precondition(b.len() == a.len())
     add_two_arrays_by_comparing_sizes(a, b)
     run_synthesis_algorithm(
         driver=driver,

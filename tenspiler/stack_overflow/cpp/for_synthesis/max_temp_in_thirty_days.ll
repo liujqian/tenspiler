@@ -1,7 +1,7 @@
-; ModuleID = '/code/tenspiler/tenspiler/c2taco/cpp/for_synthesis/stackoverflow/max_temp_in_thirty_days.ll'
-source_filename = "/code/tenspiler/tenspiler/c2taco/cpp/for_synthesis/stackoverflow/max_temp_in_thirty_days.cc"
+; ModuleID = './for_synthesis/max_temp_in_thirty_days.ll'
+source_filename = "./for_synthesis/max_temp_in_thirty_days.cc"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::__1::vector" = type { %"class.std::__1::__vector_base" }
 %"class.std::__1::__vector_base" = type { i32*, i32*, %"class.std::__1::__compressed_pair" }
@@ -143,4 +143,4 @@ attributes #1 = { nounwind }
 !llvm.ident = !{!1}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{!"Ubuntu clang version 11.0.0-2~ubuntu20.04.1"}
+!1 = !{!"clang version 11.1.0 (https://github.com/llvm/llvm-project.git 7e99bddfeaab2713a8bb6ca538da25b66e6efc59)"}

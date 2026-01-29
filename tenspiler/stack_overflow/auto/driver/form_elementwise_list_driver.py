@@ -5,17 +5,14 @@ from tenspiler.utils.synthesis_utils import run_synthesis_algorithm
 
 if __name__ == "__main__":
     driver, input_vars, form_elementwise_list = analyze_double_loops(
-        file_path="tenspiler/c2taco/cpp/for_synthesis/stackoverflow/form_elementwise_list.cc",
-        func_name="form_elementwise_list",
+        file_path="tenspiler/stack_overflow/cpp/for_synthesis/form_elementwise_list.cc",
+        func_name="calculate_form_elementwise_list",
         axioms=axioms,
     )
-    u_50, u = input_vars["u_50"], input_vars["u"]
-    driver.add_precondition(u_50.len() >= 1)
-    driver.add_precondition(u_50[0].len() >= 1)
-    driver.add_precondition(u[0].len() >= 1)
-    driver.add_precondition(u_50.len() >= u.len())
-    driver.add_precondition(u_50[0].len() >= u[0].len())
-    form_elementwise_list(u_50, u)
+    a, s = input_vars["a"], input_vars["s"]
+    driver.add_precondition(a.len() >= 1)
+    driver.add_precondition(a[0].len() >= 1)
+    form_elementwise_list(a, s)
     run_synthesis_algorithm(
         driver=driver,
         data_type=DataType.INT32,

@@ -1,7 +1,7 @@
-; ModuleID = '/code/tenspiler/tenspiler/c2taco/cpp/for_synthesis/stackoverflow/sum_columns.ll'
-source_filename = "/code/tenspiler/tenspiler/c2taco/cpp/for_synthesis/stackoverflow/sum_columns.cc"
+; ModuleID = './for_synthesis/sum_columns.ll'
+source_filename = "./for_synthesis/sum_columns.cc"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-pc-linux-gnu"
+target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::__1::vector" = type { %"class.std::__1::__vector_base" }
 %"class.std::__1::__vector_base" = type { i32*, i32*, %"class.std::__1::__compressed_pair" }
@@ -222,7 +222,7 @@ $_ZNKSt3__117__compressed_pairIPiRNS_9allocatorIiEEE5firstEv = comdat any
 @_ZTVSt12length_error = external dso_local unnamed_addr constant { [5 x i8*] }, align 8
 
 ; Function Attrs: noinline optnone uwtable
-define dso_local void @_Z11sum_columnsNSt3__16vectorINS0_IiNS_9allocatorIiEEEENS1_IS3_EEEEi(%"class.std::__1::vector"* noalias sret align 8 %agg.result, %"class.std::__1::vector.1"* %a, i32 %c) #0 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
+define dso_local void @_Z21calculate_sum_columnsNSt3__16vectorINS0_IiNS_9allocatorIiEEEENS1_IS3_EEEEi(%"class.std::__1::vector"* noalias sret align 8 %agg.result, %"class.std::__1::vector.1"* %a, i32 %c) #0 personality i8* bitcast (i32 (...)* @__gxx_personality_v0 to i8*) {
 entry:
   %result.ptr = alloca i8*, align 8
   %c.addr = alloca i32, align 4
@@ -2027,4 +2027,4 @@ attributes #14 = { builtin allocsize(0) }
 !llvm.ident = !{!1}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
-!1 = !{!"Ubuntu clang version 11.0.0-2~ubuntu20.04.1"}
+!1 = !{!"clang version 11.1.0 (https://github.com/llvm/llvm-project.git 7e99bddfeaab2713a8bb6ca538da25b66e6efc59)"}
