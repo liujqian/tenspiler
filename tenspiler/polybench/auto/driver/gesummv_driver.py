@@ -5,13 +5,15 @@ from tenspiler.utils.synthesis_utils import run_synthesis_algorithm
 
 if __name__ == "__main__":
     driver, input_vars, gesummv = analyze_double_loops(
-        file_path="tenspiler/c2taco/cpp/for_synthesis/stackoverflow/gesummv.cc",
-        func_name="gesummv",
+        file_path="tenspiler/polybench/cpp/for_synthesis/gesummv.cc",
+        func_name="kernel_gesummv",
         axioms=axioms,
     )
     A, B, x, alpha, beta = input_vars["A"], input_vars["B"], input_vars["x"], input_vars["alpha"], input_vars["beta"]
     driver.add_precondition(A.len() >= 1)
-    driver.add_precondition(B.len() >= A.len())
+    driver.add_precondition(A.len() == A[0].len())
+    driver.add_precondition(B.len() == A.len())
+    driver.add_precondition(B[0].len() == B.len())
     driver.add_precondition(x.len() >= 1)
     gesummv(A, B, x, alpha, beta)
     run_synthesis_algorithm(
