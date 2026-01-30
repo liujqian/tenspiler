@@ -1,0 +1,16 @@
+####### import statements ########
+import numpy as np
+
+####### kernel code ########
+
+def pluseq_np (a, b, n):
+    return (a[:n]) + (b[:n])
+
+####### glued code ########
+
+def pluseq_np_glued (a, b, n):
+    a = np.array(a).astype(np.int32)
+    b = np.array(b).astype(np.int32)
+    return pluseq_np(a, b, n)
+
+Synthesis took 2.076056957244873 seconds
