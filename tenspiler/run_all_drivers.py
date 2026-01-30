@@ -89,7 +89,7 @@ blend_drivers = [
 llama_drivers = [
     'tenspiler/llama/holing/driver/rmsnorm/rmsnorm_part1_driver.py',
     'tenspiler/llama/holing/driver/rmsnorm/rmsnorm_part2_driver.py',
-    'tenspiler/llama/holing/driver/softmax/softmax_part1_driver.py',
+    'tenspiler/llama/holing/driver/softmax/softmax_part1_driver.py', # known to fail
     'tenspiler/llama/holing/driver/softmax/softmax_part2_driver.py',
     'tenspiler/llama/holing/driver/softmax/softmax_part3_driver.py',
     'tenspiler/llama/holing/driver/softmax/softmax_part4_driver.py',
@@ -99,21 +99,23 @@ llama_drivers = [
     "tenspiler/llama/holing/driver/transformer/transformer_part4_driver.py",
     "tenspiler/llama/holing/driver/matmul_driver.py"
 ]
-polybench_drivers = ["tenspiler/polybench/auto/driver/gesummv_driver.py", ]
+polybench_drivers = [
+    "tenspiler/polybench/auto/driver/gesummv_driver.py", # known to not work
+]
 stack_overflow_drivers = [
-    'tenspiler/stack_overflow/auto/driver/add_two_arrays_by_comparing_sizes_driver.py',
-    'tenspiler/stack_overflow/auto/driver/derivative_1D_driver.py',
-    'tenspiler/stack_overflow/auto/driver/form_elementwise_list_driver.py',
+    'tenspiler/stack_overflow/auto/driver/add_two_arrays_by_comparing_sizes_driver.py', # known to not work
+    'tenspiler/stack_overflow/auto/driver/derivative_1D_driver.py', # known to not work
+    'tenspiler/stack_overflow/auto/driver/form_elementwise_list_driver.py', # known to not work
     'tenspiler/stack_overflow/auto/driver/looped_copy_driver.py',
-    'tenspiler/stack_overflow/auto/driver/mask_generation_driver.py',
-    'tenspiler/stack_overflow/auto/driver/max_temp_in_thirty_days_driver.py',
-    'tenspiler/stack_overflow/auto/driver/relative_difference_driver.py',
-    'tenspiler/stack_overflow/auto/driver/set_one_in_columns_driver.py',
+    'tenspiler/stack_overflow/auto/driver/mask_generation_driver.py', # known to not work
+    'tenspiler/stack_overflow/auto/driver/max_temp_in_thirty_days_driver.py', # known to not work
+    'tenspiler/stack_overflow/auto/driver/relative_difference_driver.py', # known to not work
+    'tenspiler/stack_overflow/auto/driver/set_one_in_columns_driver.py', # known to not work
     'tenspiler/stack_overflow/auto/driver/square_plus_one_driver.py',
-    'tenspiler/stack_overflow/auto/driver/struct_function_driver.py',
-    'tenspiler/stack_overflow/auto/driver/sum_columns_driver.py',
-    'tenspiler/stack_overflow/auto/driver/supply_demand_driver.py',
-    'tenspiler/stack_overflow/auto/driver/+13zipped_loop_computation_driver.py',
+    'tenspiler/stack_overflow/auto/driver/struct_function_driver.py', # known to not work
+    'tenspiler/stack_overflow/auto/driver/sum_columns_driver.py', # known to not work
+    'tenspiler/stack_overflow/auto/driver/supply_demand_driver.py', # known to not work
+    'tenspiler/stack_overflow/auto/driver/+13zipped_loop_computation_driver.py', # known to not work
 ]
 all_drivers = c2taco_drivers + blend_drivers + llama_drivers + polybench_drivers + stack_overflow_drivers
 
