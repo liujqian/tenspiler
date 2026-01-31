@@ -115,7 +115,7 @@ stack_overflow_drivers = [
     'tenspiler/stack_overflow/auto/driver/struct_function_driver.py', # known to not work
     'tenspiler/stack_overflow/auto/driver/sum_columns_driver.py', # known to not work
     'tenspiler/stack_overflow/auto/driver/supply_demand_driver.py', # known to not work
-    'tenspiler/stack_overflow/auto/driver/+13zipped_loop_computation_driver.py', # known to not work
+    'tenspiler/stack_overflow/auto/driver/zipped_loop_computation_driver.py', # known to not work
 ]
 all_drivers = c2taco_drivers + blend_drivers + llama_drivers + polybench_drivers + stack_overflow_drivers
 
