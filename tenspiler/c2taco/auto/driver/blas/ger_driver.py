@@ -24,7 +24,7 @@ if __name__ == "__main__":
     ger(M, N, x, y, A)
     run_synthesis_algorithm(
         driver=driver,
-        data_type=DataType.FLOAT,
+        data_type=DataType.INT32,
         benchmark_name="ger",
         has_relaxed=True
     )
