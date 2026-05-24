@@ -1,0 +1,544 @@
+    1  nvidia-smi
+    2  poweroff
+    3  sudo apt install nvidia-cuda-toolkit
+    4  nvidia-smi
+    5  prime-select query
+    6  dkms status
+    7  nvidia-smi
+    8  sudo ubuntu-drivers autoinstall
+    9  reboot
+   10  nvidia-smi
+   11  sudo dpkg -i google-chrome-stable_current_amd64.deb 
+   12  nvidia-smi
+   13  sudo apt install git gcc g++ vim nano
+   14  sudo dpkg -i zoom_amd64.deb 
+   15  apt --fix-broken install 
+   16  sudo dpkg -i zoom_amd64.deb 
+   17  for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+   18  sudo apt autoremove
+   19  # Add Docker's official GPG key:
+   20  sudo apt-get update
+   21  sudo apt-get install ca-certificates curl
+   22  sudo install -m 0755 -d /etc/apt/keyrings
+   23  sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+   24  sudo chmod a+r /etc/apt/keyrings/docker.asc
+   25  # Add the repository to Apt sources:
+   26  echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+   27    $(. /etc/os-release && echo "$VERSION_CODENAME") stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   28  sudo apt-get update
+   29  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   30  echo   "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+   31    $(. /etc/os-release && echo "$UBUNTU_CODENAME") stable" |   sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+   32  sudo apt update
+   33  sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   34  sudo docker run hello-world
+   35  sudo groupadd docker
+   36  sudo usermod -aG docker $USER
+   37  newgrp docker
+   38  docker run hello-world
+   39  cat /usr/bin/nvidia-sleep.sh 
+   40  sudo ubuntu-drivers list
+   41  sudo ubuntu-drivers install nvidia:535
+   42  reboot
+   43  nvidia-smi
+   44  reboot
+   45  sudo apt update && sudo apt upgrade
+   46  reboot
+   47  sudo apt update
+   48  cd Downloads/
+   49  curl -O https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+   50  bash ~/Miniconda3-latest-Linux-x86_64.sh
+   51  ls
+   52  bash Miniconda3-latest-Linux-x86_64.sh
+   53  conda create env grading python=3.11
+   54  conda create env -n grading python=3.11
+   55  conda create -n grading python=3.11
+   56  cd Downloads/
+   57  curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | sh
+   58  ghc
+   59  wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/sublimehq-archive.gpg > /dev/null
+   60  sudo apt-get install apt-transport-https
+   61  echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
+   62  sudo apt-get update
+   63  sudo apt-get install sublime-merge
+   64  what ghc
+   65  where ghc
+   66  whatis ghc
+   67  whereis ghc
+   68  sudo apt install -y build-essential curl libffi-dev libffi7 libgmp-dev libgmp10 libncurses-dev libncurses5 libtinfo5
+   69  sudo apt install libgmp-dev
+   70  whereis ghc
+   71  cd test_grading/
+   72  ghc sol.hs 
+   73  cd ..
+   74  ghc adleysam/test0.hs 
+   75  ./adleysam/test0 
+   76  cd test_grading/
+   77  ghc adleysam/test0.hs 
+   78  ghci adleysam_194712_23168235_H1_Sam_Adley.hs 
+   79  ghc adleysam/test0.hs 
+   80  cd test_grading/
+   81  ghc adleysam/test0.hs 
+   82  ghci adleysam_194712_23168235_H1_Sam_Adley.hs 
+   83  sudo vim /etc/default/grub
+   84  sudo cat /etc/default/grub
+   85  sudo apt update
+   86  sudo apt upgrade
+   87  sudo apt update
+   88  sudo apt upgrade
+   89  reboot
+   90  git clone https://github.com/numba/numba-mlir.git~ .
+   91  git clone https://github.com/numba/numba-mlir.git .
+   92  git clone https://github.com/llvm/llvm-project.git .
+   93  git checkout $SHA
+   94  git checkout b1edac0496f47374c9780f3f83c6773eed73a66e
+   95  mkdir llvm-build
+   96  cd llvm-build/
+   97  cmake ../llvm-project/llvm -GNinja -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_PROJECTS=mlir -DLLVM_ENABLE_ASSERTIONS=ON -DLLVM_ENABLE_RTTI=ON -DLLVM_USE_LINKER=gold -DLLVM_INSTALL_UTILS=ON -DCMAKE_INSTALL_PREFIX=../llvm-install
+   98  sudo apt install cmake
+   99  cmake ../llvm-project/llvm -GNinja -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_PROJECTS=mlir -DLLVM_ENABLE_ASSERTIONS=ON -DLLVM_ENABLE_RTTI=ON -DLLVM_USE_LINKER=gold -DLLVM_INSTALL_UTILS=ON -DCMAKE_INSTALL_PREFIX=../llvm-install
+  100  ninja
+  101  [200~sudo apt install ninja-build
+  102  sudo apt install ninja-build
+  103  sudo apt install gcc g++
+  104  sudo apt autoremove
+  105  cmake ../llvm-project/llvm -GNinja -DCMAKE_BUILD_TYPE=Release -DLLVM_ENABLE_PROJECTS=mlir -DLLVM_ENABLE_ASSERTIONS=ON -DLLVM_ENABLE_RTTI=ON -DLLVM_USE_LINKER=gold -DLLVM_INSTALL_UTILS=ON -DCMAKE_INSTALL_PREFIX=../llvm-install
+  106  ninja install
+  107  cd ..
+  108  conda create -n test-env python=3.11 --file ../scripts/numba-mlir.env -c conda-forge
+  109  ls
+  110  conda create -n test-env python=3.11 --file ./scripts/numba-mlir.env -c conda-forge
+  111  conda activate test-env  
+  112  ls
+  113  conda install dpcpp_linux-64=2024.2 --file ../scripts/mkl.env -c https://software.repos.intel.com/python/conda/
+  114  conda install dpcpp_linux-64=2024.2 --file ./scripts/mkl.env -c https://software.repos.intel.com/python/conda/
+  115  export LLVM_PATH=~/Documents/Repositories/numba-mlir/llvm-install
+  116  export NUMBA_MLIR_USE_SYCL=ON
+  117  python setup.py develop
+  118  cd numba_mlir
+  119  python setup.py develop
+  120  pytest -n8 --capture=tee-sys -rXF
+  121  ls
+  122  $HOME/.cache/numba
+  123  ls
+  124  cd __pycache__/
+  125  ls
+  126  git clone https://github.com/llvm/llvm-project.git
+  127  mkdir llvm-project/build
+  128  cd llvm-project/build
+  129  cmake -G Ninja ../llvm    -DLLVM_ENABLE_PROJECTS=mlir    -DLLVM_BUILD_EXAMPLES=ON    -DLLVM_TARGETS_TO_BUILD="Native;NVPTX;AMDGPU"    -DCMAKE_BUILD_TYPE=Release    -DLLVM_ENABLE_ASSERTIONS=ON
+  130  # Using clang and lld speeds up the build, we recommend adding:
+  131  #  -DCMAKE_C_COMPILER=clang -DCMAKE_CXX_COMPILER=clang++ -DLLVM_ENABLE_LLD=ON
+  132  # CCache can drastically speed up further rebuilds, try adding:
+  133  #  -DLLVM_CCACHE_BUILD=ON
+  134  # Optionally, using ASAN/UBSAN can find bugs early in development, enable with:
+  135  # -DLLVM_USE_SANITIZER="Address;Undefined"
+  136  # Optionally, enabling integration tests as well
+  137  # -DMLIR_INCLUDE_INTEGRATION_TESTS=ON
+  138  cmake --build . --target check-mlir
+  139  ls
+  140  pwd
+  141  ./build_tools/write_env_file.sh 
+  142  ls
+  143  cat build/.env 
+  144  ls -a
+  145  rm -r __pycache__/
+  146  python main.py 2> stderr.txt
+  147  export NUMBA_MLIR_DUMP_IR=1
+  148  python main.py 2> stderr.txt
+  149  mlir-opt
+  150  python main.py 2> stderr.txt
+  151  ls
+  152  cd ..
+  153  ls
+  154  cd numba-mlir-test/
+  155  /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/mlir-opt 
+  156  /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/mlir-opt ir.mlir  -convert-linalg-to-affine-loops
+  157  pip install --pre torch-mlir torchvision   --extra-index-url https://download.pytorch.org/whl/nightly/cpu   -f https://github.com/llvm/torch-mlir-release/releases/expanded_assets/dev-wheels
+  158  pip install torch-mlir -f https://github.com/llvm/torch-mlir-release/releases/expanded_assets/dev-wheels
+  159  /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/mlir-opt ir.mlir  -convert-linalg-to-affine-loops
+  160  /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/mlir-opt ir.mlir  -empty-tensor-to-alloc-tensor -one-shot-bufferize -convert-linalg-to-affine-loops
+  161  pip uninstall pytorch
+  162  pip uninstall torch_mlir
+  163  python main.py 2> stderr.txt
+  164  /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/mlir-opt ir.mlir  -convert-linalg-to-affine-loops
+  165  /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/mlir-opt ir.mlir -allow-unregistered-dialect ir.mlir  -convert-linalg-to-affine-loops
+  166  /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/mlir-opt ir.mlir -allow-unregistered-dialect  -convert-linalg-to-affine-loops
+  167  python main.py 2> stderr.txt
+  168  python main_numba_mlir.py 2> stderr.txt
+  169  /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/mlir-opt ir.mlir -allow-unregistered-dialect  -convert-linalg-to-affine-loops
+  170  /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/mlir-opt ir.mlir -allow-unregistered-dialect  -canonicalize -cse -sccp -dce -convert-linalg-to-affine-loops -canonicalize -cse
+  171  /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/mlir-opt ir.mlir -allow-unregistered-dialect  -canonicalize -cse -sccp -convert-linalg-to-affine-loops -canonicalize -cse
+  172  /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/mlir-opt ir.mlir -allow-unregistered-dialect  -canonicalize -cse -sccp -convert-scf-to-affine -loops -canonicalize -cse
+  173  git clone --recursive https://github.com/llvm/Polygeist.git
+  174  cd Polygeist
+  175  mkdir build
+  176  cd build
+  177  cmake -G Ninja ../llvm-project/llvm   -DLLVM_ENABLE_PROJECTS="clang;mlir"   -DLLVM_EXTERNAL_PROJECTS="polygeist"   -DLLVM_EXTERNAL_POLYGEIST_SOURCE_DIR=..   -DLLVM_TARGETS_TO_BUILD="host"   -DLLVM_ENABLE_ASSERTIONS=ON   -DCMAKE_BUILD_TYPE=DEBUG
+  178  ninja
+  179  clang
+  180  sudo apt install clang
+  181  ninja
+  182  cat .env 
+  183  ls
+  184  mlir-opt
+  185  ls
+  186  pwd
+  187  mlir-opt
+  188  conda activate test-env
+  189  mlir-opt
+  190  cd /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/
+  191  mlir-opt
+  192  ls /home/liujqian/Documents/Repositories/numba-mlir/llvm-build/bin/
+  193  pwd
+  194  ls .
+  195  mlir-opt
+  196  ./mlir-opt 
+  197  pwd
+  198  https://github.com/alexanderb14/tensorize.git
+  199  git clone https://github.com/alexanderb14/tensorize.git
+  200  ./build_tools/build_dependencies.sh 
+  201  bash ./build_tools/build_dependencies.sh 
+  202  ld.lld --version
+  203  sudo apt install lld
+  204  ld.lld --version
+  205  bash ./build_tools/build_dependencies.sh 
+  206  echo $?
+  207  ./build_tools/build.sh
+  208  clang-format
+  209  sudo apt install clang-format
+  210  conda create --name myenv python=3.11
+  211  conda rename -n myenv tensorize
+  212  conda activate tensorize
+  213  bash ./build_tools/build.sh 
+  214  sudo apt-get install libboost-all-dev
+  215  bash ./build_tools/build.sh 
+  216  pip install numpy
+  217  pip install -r requirements.txt
+  218  bash ./build_tools/build.sh 
+  219  sudo apt-get install jq
+  220  bash ./build_tools/build.sh 
+  221  ls
+  222  touch ir.mlir
+  223  vim ir.mlir 
+  224  python tensorize/main.py --program ir.mlir --synth_out synth.py --target numpy
+  225  pip install pymlir
+  226  pip install -r deps/llvm-project/mlir/python/requirements.txt 
+  227  python tensorize/main.py --program ir.mlir --synth_out synth.py --target numpy
+  228  export PYTHONPATH="${PYTHONPATH}:~/Documents/Repositories/tensorize/build/python_packages/synth"
+  229  python tensorize/main.py --program ir.mlir --synth_out synth.py --target numpy
+  230  export PYTHONPATH="${PYTHONPATH}:~/Documents/Repositories/tensorize/build/python_packages/synth"
+  231  python tensorize/main.py --program ir.mlir --synth_out synth.py --target numpy
+  232  python3 -c "import sys; print(sys.path)"
+  233  cd build/
+  234  ninja check-polygeist-opt && ninja check-cgeist
+  235  ls
+  236  [200~./bin/cgeist~
+  237  ./bin/cgeist
+  238  ls
+  239  touch ir.mlir
+  240  vim ir.mlir 
+  241  cat ir.mlir 
+  242  ./bin/cgeist ir.mlir -raise-scf-to-affine
+  243  ./bin/cgeist ir.mlir -function=matmul -S -raise-scf-to-affine
+  244  ls bin
+  245  ./bin/polygeist-opt 
+  246  ./bin/polygeist-opt -h
+  247  ls
+  248  ./bin/polygeist-opt ir.mlir --raise-scf-to-affine
+  249  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir  --raise-scf-to-affine
+  250  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir  --raise-scf-to-affine -allow-unregistered-dialect
+  251  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir --canonicalize  --raise-scf-to-affine -allow-unregistered-dialect
+  252  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  -allow-unregistered-dialect
+  253  ./bin/mlir-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  -allow-unregistered-dialect
+  254  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --raise-scf-to-affine -allow-unregistered-dialect
+  255  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --convert-linalg-to-affine-loops  -allow-unregistered-dialect
+  256  ./bin/mlir-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --convert-linalg-to-affine-loops  -allow-unregistered-dialect
+  257  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --raise-scf-to-affine -allow-unregistered-dialect
+  258  ./bin/mlir-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --convert-linalg-to-affine-loops  -allow-unregistered-dialect
+  259  ./bin/mlir-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  
+  260  ./bin/mlir-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize   -allow-unregistered-dialect
+  261  ./bin/mlir-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --convert-linalg-to-affine-loops  -allow-unregistered-dialect
+  262  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --raise-scf-to-affine -allow-unregistered-dialect
+  263  ./bin/cgeist /home/liujqian/CLionProjects/untitled/main.c -function=transformer_part3 -S -raise-scf-to-affine
+  264  ./bin/cgeist /home/liujqian/CLionProjects/untitled/main.cpp -function=transformer_part3 -S -raise-scf-to-affine
+  265  ./bin/mlir-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --convert-linalg-to-affine-loops  -allow-unregistered-dialect
+  266  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --raise-scf-to-affine -allow-unregistered-dialect
+  267  ./bin/mlir-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --convert-linalg-to-affine-loops  -allow-unregistered-dialect
+  268  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --raise-scf-to-affine -allow-unregistered-dialect
+  269  ./bin/mlir-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --convert-linalg-to-affine-loops  -allow-unregistered-dialect
+  270  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --raise-scf-to-affine -allow-unregistered-dialect
+  271  ./bin/mlir-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --convert-linalg-to-affine-loops  -allow-unregistered-dialect
+  272  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --raise-scf-to-affine -allow-unregistered-dialect
+  273  ./bin/mlir-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --convert-linalg-to-affine-loops  -allow-unregistered-dialect
+  274  ./bin/polygeist-opt /home/liujqian/PycharmProjects/numba-mlir-test/ir.mlir -canonicalize  --raise-scf-to-affine -allow-unregistered-dialect
+  275  pwd"
+  276  pwd
+  277  export PYTHONPATH="${PYTHONPATH}:/home/liujqian/Documents/Repositories/tensorize/build/python_packages/synth"
+  278  python3 -c "import sys; print(sys.path)"
+  279  python tensorize/main.py --program ir.mlir --synth_out synth.py --target numpy
+  280  conda activate tensorize/
+  281  conda activate tensorize
+  282  python3 -c "import sys; print(sys.path)"
+  283  python tensorize/main.py --program ir.mlir --synth_out synth.py --target numpy
+  284  history
+  285  python main_numba_mlir.py 2> stderr.txt
+  286  export NUMBA_MLIR_DUMP_IR=1
+  287  python main_numba_mlir.py 2> stderr.txt
+  288  sudo dpkg -i code_1.107.1-1765982436_amd64.deb 
+  289  git clone https://github.com/liujqian/vectorizer.git
+  290  (type -p wget >/dev/null || (sudo apt update && sudo apt install wget -y)) 	&& sudo mkdir -p -m 755 /etc/apt/keyrings 	&& out=$(mktemp) && wget -nv -O$out https://cli.github.com/packages/githubcli-archive-keyring.gpg 	&& cat $out | sudo tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null 	&& sudo chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg 	&& sudo mkdir -p -m 755 /etc/apt/sources.list.d 	&& echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null 	&& sudo apt update 	&& sudo apt install gh -y
+  291  sudo apt update && sudo apt upgrade
+  292  sudo apt install gh
+  293  gh repo clone liujqian/vectorizer
+  294  gh auth login
+  295  gh repo clone liujqian/vectorizer
+  296  cgeist
+  297  cd build
+  298  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/add_at_coordinates.c -S -raise-scf-to-affine 
+  299  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/add_at_coordinates.c -raise-scf-to-affine 
+  300  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/add_at_coordinates.c -S -raise-scf-to-affine 
+  301  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/add_at_coordinates.c -function=add_at_coordinates_standardized -S -raise-scf-to-affine 
+  302  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/blas/C/dot.c -function=add_at_coordinates_standardized -S -raise-scf-to-affine 
+  303  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/blas/C/dot.c  -S -raise-scf-to-affine 
+  304  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/add_at_coordinates.c -S -raise-scf-to-affine 
+  305  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/calculate_intensities.c -S -raise-scf-to-affine 
+  306  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/compare_image_reflectance.c -S -raise-scf-to-affine 
+  307  cd Documents/Repositories/Polygeist/build/
+  308  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/cosine_between_angles_of_triplets_in_rows.c -S -raise-scf-to-affine 
+  309  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/derivative_1D.c -S -raise-scf-to-affine 
+  310  cd Documents/Repositories/Polygeist/build/
+  311  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/cosine_between_angles_of_triplets_in_rows.c -S -raise-scf-to-affine 
+  312  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/derivative_1D.c -S -raise-scf-to-affine 
+  313  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/derivative_2D.c -S -raise-scf-to-affine 
+  314  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/find_coordinates_in_points.c.c -S -raise-scf-to-affine 
+  315  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/find_coordinates_in_points.c -S -raise-scf-to-affine 
+  316  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/compute_distance_two_loops.c.c -S -raise-scf-to-affine 
+  317  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/compute_distance_two_loops.c -S -raise-scf-to-affine 
+  318  cd Polygeist//build/
+  319  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/stack_overflow/C/compute_distance_two_loops.c -S -raise-scf-to-affine 
+  320  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/blas/C/ger.c -S -raise-scf-to-affine 
+  321  ./bin/cgeist /home/liujqian/Documents/Repositories/vectorizer/sample_problems/blas/C/dot.c -S -raise-scf-to-affine 
+  322  history
+  323  conda activate tensorize
+  324  export PYTHONPATH="${PYTHONPATH}:/home/liujqian/Documents/Repositories/tensorize/build/python_packages/synth"
+  325  cd Documents/Repositories/tensorize/
+  326  ls
+  327  python tensorize/main.py --program ir.mlir --synth_out synth.py --target numpy
+  328  ./opt
+  329  ./opt -h
+  330  ./opt --version
+  331  mlir-opt
+  332  opt -h
+  333  ./opt =h
+  334  ./opt -h
+  335  ./opt ../ir.mlir
+  336  ./opt ../../ir.mlir
+  337  export PYTHONPATH="${PYTHONPATH}:/home/liujqian/Documents/Repositories/tensorize/build/python_packages/synth"
+  338  conda activate tensorize/
+  339  conda activate tensorize
+  340  python tensorize/main.py --program ir.mlir --synth_out synth.py --target numpy
+  341  git clone https://github.com/liujqian/tenspiler.git
+  342  sudo apt update && sudo apt upgrade -y
+  343  conda create --name tenspiler python=3.9
+  344  git clone https://github.com/bitwuzla/bitwuzla.git
+  345  cd bitwuzla/
+  346  python -m pip install meson ninja
+  347  ./configure.py 
+  348  meson build
+  349  ./configure.py 
+  350  meson build
+  351  cd build/
+  352  meson compile_commands.json 
+  353  meson compile
+  354  ls
+  355  ls src/
+  356  ls src/main
+  357  cd src/main
+  358  ls
+  359  pwd
+  360  vim ~/.bashrc 
+  361  source ~/.bashrc 
+  362  bitwuzla 
+  363  bitwuzla -h
+  364  bitwuzla -V
+  365  curl -O https://gmplib.org/download/gmp/gmp-6.3.0.tar.xz
+  366  tar -xJf gmp-6.3.0.tar.xz
+  367  cd gmp-6.3.0/
+  368  conda activate tenspiler
+  369  bash ./configure
+  370  make 
+  371  make install
+  372  sudo make install
+  373  make check
+  374  cd ../../mpfr/
+  375  curl -O https://www.mpfr.org/mpfr-4.2.1/mpfr-4.2.1.tar.xz
+  376  tar -xJf mpfr-4.2.1.tar.xz
+  377  cd mpfr-4.2.1/
+  378  bash ./configure
+  379  make
+  380  make install
+  381  sudo make install
+  382  python -v
+  383  python -m pip install poetry
+  384  cd ../..
+  385  poetry lock
+  386  poetry install
+  387  cd ../..
+  388  mkdir racket
+  389  curl -sSL https://mirror.racket-lang.org/installers/8.7/racket-8.7-x86_64-linux.sh -o racket-install.sh     && chmod +x racket-install.sh     && echo "yes\n1\n" | ./racket-install.sh --unix-style --dest /usr/     && rm racket-install.sh
+  390  curl -sSL https://mirror.racket-lang.org/installers/8.7/racket-8.7-x86_64-linux.sh -o racket-install.sh     && chmod +x racket-install.sh     && echo "yes\n1\n" | ./racket-install.sh --unix-style --dest ~/Documents/racket     && rm racket-install.sh
+  391  cd racket/bin/
+  392  ls
+  393  pwd
+  394  vim ~/.bashrc 
+  395  source ~/.bashrc 
+  396  raco pkg install --auto rosette
+  397  clang
+  398  pwd
+  399  vim ~/.bashrc 
+  400  source ~/.bashrc 
+  401  clang
+  402  cd ~/Documents/Repositories/tenspiler/llvm-pass/
+  403  mkdir build
+  404  cd build/
+  405  cmake ..
+  406  make
+  407  llvm
+  408  which clang
+  409  clang --version
+  410  which llvm-config || true
+  411  llvm-config --version || true
+  412  llvm-config --includedir || true
+  413  cd ..
+  414  rm -rf build
+  415  cmake -S . -B build   -DCMAKE_BUILD_TYPE=Release   -DCMAKE_C_COMPILER="$HOME/Documents/llvm11/clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-20.10/bin/clang"   -DCMAKE_CXX_COMPILER="$HOME/Documents/llvm11/clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-20.10/bin/clang++"   -DLLVM_DIR="$HOME/Documents/llvm11/clang+llvm-11.1.0-x86_64-linux-gnu-ubuntu-20.10/lib/cmake/llvm"
+  416  cmake --build build -v
+  417  echo $?
+  418  make
+  419  ls
+  420  cd build/
+  421  ls
+  422  make
+  423  ls
+  424  cat CMake
+  425  cat CMakeFiles/
+  426  cd ../..
+  427  ./tenspiler/llama/cpp/compile-add-blocks.sh ./tenspiler/c2taco/cpp/for_synthesis/darknet/mag_plus.cc
+  428  ls
+  429  cat ./tenspiler/c2taco/cpp/for_synthesis/darknet/mag_plus.cc
+  430  ./tenspiler/llama/cpp/compile-add-blocks.sh ./tenspiler/c2taco/cpp/for_synthesis/darknet/mag_array.cc
+  431  cd tenspiler/llama/cpp/
+  432  ./compile-add-blocks.sh ./tenspiler/c2taco/cpp/for_synthesis/darknet/mag_array.cc
+  433  ls
+  434  ./compile-add-blocks.sh ./for_synthesis/darknet/mag_array.cc
+  435  ls for_synthesis/
+  436  ./compile-add-blocks.sh ./for_synthesis/matmul.cc 
+  437  conda env list
+  438  conda create --name vectorizer python=3.12
+  439  cd tenspiler/c2taco/
+  440  cd cpp/
+  441  ./compile-add-blocks.sh for_synthesis/darknet/scale_array.cc
+  442  cd ../..
+  443  cd ..
+  444  cat tenspiler/llama/cpp/for_synthesis/softmax/softmax_part2.cpp
+  445  cat tenspiler/llama/cpp/for_synthesis/softmax/softmax_part2.cc 
+  446  cd tenspiler/c2taco/
+  447  cd cpp/
+  448  ls
+  449  ./compile-add-blocks.sh for_synthesis/blas/ger_.cc 
+  450  ./compile-add-blocks.sh for_synthesis/darknet/gemm_nn_.cc 
+  451  ./compile-add-blocks.sh for_synthesis/darknet/gemm_nt_.cc 
+  452  ./compile-add-blocks.sh for_synthesis/darknet/gemm_tn_.cc 
+  453  ./compile-add-blocks.sh for_synthesis/darknet/gemm_tt_.cc 
+  454  ./compile-add-blocks.sh for_synthesis/darknet/gemm_tn_.cc 
+  455  ./compile-add-blocks.sh for_synthesis/darknet/gemm_tt_.cc 
+  456  ./compile-add-blocks.sh for_synthesis/dsp/matinit_.cc 
+  457  ./compile-add-blocks.sh for_synthesis/dsp/matmul_.cc 
+  458  ./compile-add-blocks.sh for_synthesis/dsp/matinit_.cc 
+  459  ./compile-add-blocks.sh for_synthesis/dspstone/matrix1_.cc 
+  460  ./compile-add-blocks.sh for_synthesis/dspstone/matrix2_.cc 
+  461  ./compile-add-blocks.sh for_synthesis/dspstone/pin_down_.cc 
+  462  ./compile-add-blocks.sh for_synthesis/dspstone/matrix1_.cc 
+  463  ./compile-add-blocks.sh for_synthesis/dspstone/matrix2_.cc 
+  464  ./compile-add-blocks.sh for_synthesis/dspstone/matrix1_.cc 
+  465  ./compile-add-blocks.sh for_synthesis/mathfu/lerp_.cc 
+  466  ./compile-add-blocks.sh for_synthesis/utdsp/dct_.cc 
+  467  ./compile-add-blocks.sh for_synthesis/utdsp/histogram_.cc 
+  468  ./compile-add-blocks.sh for_synthesis/utdsp/mult_big_.cc 
+  469  ./compile-add-blocks.sh for_synthesis/dspstone/pin_down_.cc 
+  470  ./compile-add-blocks.sh for_synthesis/utdsp/histogram_.cc 
+  471  pip install -r requirements.txt
+  472  git remote origin
+  473  git remote get-url origin
+  474  python tensorize/main.py --program benchmark/software/blas/dot.mlir --synth_out synthe.py --target numpy
+  475  export PYTHONPATH="/home/liujqian/Documents/Repositories/tensorize/build/python_packages/synth:$PYTHONPATH"
+  476  python tensorize/main.py --program benchmark/software/blas/dot.mlir --synth_out synthe.py --target numpy
+  477  python tensorize/main.py --program benchmark/polybench/correlation.mli --synth_out synthe.py --target numpy
+  478  python tensorize/main.py --program benchmark/software/blend/color_burn_8.mlir --synth_out synthe.py --target numpy
+  479  python tensorize/main.py --program benchmark/software/blas/dot.mlir --synth_out synthe.py --target numpy
+  480  python tensorize/main.py --program benchmark/software/blas/ger.mlir --synth_out synthe.py --target numpy
+  481  cd benchmark/
+  482  'timeout 1800 python /home/liujqian/Documents/Repositories/tensorize/benchmark/../tensorize/main.py --program /home/liujqian/Documents/Repositories/tensorize/benchmark/software/blas/dot.mlir --target numpy --synth_out out/synth/dot.out'
+  483  timeout 1800 python /home/liujqian/Documents/Repositories/tensorize/benchmark/../tensorize/main.py --program /home/liujqian/Documents/Repositories/tensorize/benchmark/software/blas/dot.mlir --target numpy --synth_out out/synth/dot.out
+  484  which python
+  485  git remote -v
+  486  git remote set-url origin https://github.com/liujqian/tensorize.git
+  487  sudo snap install slack
+  488  ls .idea
+  489  cd ../..
+  490  cd ..
+  491  sudo rm -rf ./PyCharmMiscProject/
+  492  ls
+  493  cvc5
+  494  ./cvc5
+  495  export PATH=${PATH}:/home/liujqian/Documents/Repositories/tenspiler/cvc5
+  496  cd tenspiler/llama/holing/
+  497  ls
+  498  cd driver/
+  499  ls
+  500  cd softmax/
+  501  ls
+  502  python softmax_part1_driver.py 
+  503  cd ../../..
+  504  cd ../..
+  505  cvc5
+  506  echo "$PATH"
+  507  export PATH="${PATH}:/home/liujqian/Documents/Repositories/tenspiler"
+  508  cvc5
+  509  python tenspiler/llama/holing/driver/softmax/softmax_part1_driver.py 
+  510  cat ~/.bashrc 
+  511  vim ~/.bashrc 
+  512  cat ~/.bashrc 
+  513  diff tenspiler/c2taco/cpp/compile-add-blocks.sh tenspiler/llama/cpp/compile-add-blocks.sh 
+  514  curl -f https://zed.dev/install.sh | sh
+  515  echo 'export PATH=$HOME/.local/bin:$PATH' >> ~/.bashrc
+  516  python
+  517  # show kernel messages and filter for common OOM strings
+  518  sudo journalctl -k --no-pager | grep -Ei 'out of memory|oom-kill|killed process'
+  519  sudo journalctl -k --since "10 minutes ago" --no-pager   | grep -Ei 'out of memory|oom-kill|killed process'
+  520  sudo apt update
+  521  apt list --upgradable
+  522  apt upgrade
+  523  sudo apt update
+  524  sudo apt upgrade
+  525  sudo apt update
+  526  sudo apt upgrade
+  527  sudo apt autoremove 
+  528  sudo apt upgrade
+  529  which clang
+  530  pwd
+  531  cd llvm-pass/
+  532  rm -rf build
+  533  mkdir
+  534  mkdir build
+  535  cd build
+  536  cmake .. -DLLVM_DIR=$(/home/liujqian/Documents/llvm11/clang+llvm-11.0.0-x86_64-linux-gnu-ubuntu-20.04/bin/llvm-config --cmakedir)
+  537  make
+  538  sudo apt update
+  539  sudo apt upgrade
+  540  history | grep "compile_add"
+  541  history 
+  542  which llvm
+  543  which clang
+  544  history > bash_history.txt
